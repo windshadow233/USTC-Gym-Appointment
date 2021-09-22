@@ -11,14 +11,14 @@
 
 # 使用方法
 ```python
-from ustc_gym_appointment-bot import USTCGymAppointmentBot
+from ustc_gym_appointment_bot import USTCGymAppointmentBot
 
 bot = USTCGymAppointmentBot()
 # 登录
 bot.login('SAxxxxxxxx', 'password')
 # 可通过简单交互程序进行预约
 bot.interactive()
-# 也可通过bot.submit方法自行调用预约
+# 也可通过bot.submit方法自行调用预约,params自己构造
 bot.submit(params)
 # 通过bot.cancel方法取消预约,参数reserve_id在预约成功后的返回结果中获取。
 bot.cancel(reserve_id)
