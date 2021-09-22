@@ -22,5 +22,5 @@ bot.interactive()
 bot.submit(params)
 # 通过bot.cancel方法取消预约,参数reserve_id在预约成功后的返回结果中获取。
 bot.cancel(reserve_id)
-# 使用bot.find_available获取四天内的可用场地
+# 使用bot.find_available方法获取四天内的可用场地
 available = bot.find_available(gymnasium_id=1)
