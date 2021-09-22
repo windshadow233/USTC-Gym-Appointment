@@ -6,7 +6,7 @@ import tqdm
 from ustc_passport_login import USTCPassportLogin
 
 
-class USTCGYMAppointmentBot(object):
+class USTCGymAppointmentBot(object):
     def __init__(self):
         self.login_bot = USTCPassportLogin()
         self.sess = self.login_bot.sess
