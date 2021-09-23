@@ -6,7 +6,7 @@ import tqdm
 from ustc_passport_login import USTCPassportLogin
 
 
-class USTCGymAppointment(object):
+class USTCGymAppointmentBot(object):
     def __init__(self):
         self.login_bot = USTCPassportLogin()
         self.sess = self.login_bot.sess
@@ -71,7 +71,7 @@ class USTCGymAppointment(object):
         """
         选择羽毛球或游泳
         """
-        print('目前游泳预约已切换平台，强制选择羽毛球\n')
+        print('目前游泳预约已切换平台，强制选择羽毛球')
         return 1
         while 1:
             choise = input("选择想要预约的运动类型:\n0: 退出\n1: 羽毛球\n2: 游泳") or '1'
@@ -197,25 +197,25 @@ class USTCGymAppointment(object):
         if not gymnasium_id:
             return
         sport = {1: '羽毛球', 4: '游泳'}.get(gymnasium_id)
-        print(f"选定运动类型: {sport}\n")
-        print("正在寻找四天内的可用场地...\n")
+        print(f"选定运动类型: {sport}")
+        print("正在寻找四天内的可用场地...")
         available = self.find_available(gymnasium_id)
         if not available:
-            print("这几天场地已经约满了！\n")
+            print("这几天场地已经约满了！")
             return
         date = self._choose_date(available)
         if not date:
             return
-        print(f"选定日期: {date}\n")
+        print(f"选定日期: {date}")
         t_id = self._choose_time(available, date)
         if not t_id:
             return
-        print(f"选定时间: {self.id2time[t_id]}\n")
+        print(f"选定时间: {self.id2time[t_id]}")
         available = available[(date, t_id)]
         place = self._choose_available_place(available)
         if not place:
             return
-        print(f"选定场地号: {place}\n")
+        print(f"选定场地号: {place}")
         people_number = self._choose_people_number(gymnasium_id)
         if not people_number:
             return
