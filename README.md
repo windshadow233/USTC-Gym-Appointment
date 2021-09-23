@@ -13,9 +13,9 @@
 
 # 使用方法
 ```python
-from ustc_gym_appointment_bot import USTCGymAppointmentBot
+from ustc_gym_appointment import USTCGymAppointment
 
-bot = USTCGymAppointmentBot()
+bot = USTCGymAppointment()
 # 登录
 bot.login('SAxxxxxxxx', 'password')
 # 可通过简单交互程序进行预约
