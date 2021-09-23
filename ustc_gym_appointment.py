@@ -12,6 +12,7 @@ class USTCGymAppointment(object):
         self.sess = self.login_bot.sess
         self.cas_url = 'https://passport.ustc.edu.cn/login?service=https://cgyy.ustc.edu.cn/validateLogin.html'
         self.info_url = 'https://cgyy.ustc.edu.cn/api/app/sport/place/getAppointmentInfo'
+        self.token_url = 'https://cgyy.ustc.edu.cn/api/user/login'
         self.submit_url = 'https://cgyy.ustc.edu.cn/api/app/appointment/record/submit'
         self.cancel_url = 'https://cgyy.ustc.edu.cn/api/app/appointment/record/cancel/'
 
@@ -40,14 +41,13 @@ class USTCGymAppointment(object):
         """
         获取token
         """
-        url = 'https://cgyy.ustc.edu.cn/api/user/login'
         headers = {
             "content-type": "application/json"
         }
         data = {
             "ticket": ticket
         }
-        r = self.sess.post(url, data=json.dumps(data), headers=headers)
+        r = self.sess.post(self.token_url, data=json.dumps(data), headers=headers)
         return r.json().get('data').get('token')
 
     def _get_available(self, gymnasium_id, date_str, time_quantum_id):
