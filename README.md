@@ -1,4 +1,4 @@
-# USTC-Gym-Appointment-Bot
+# USTC-Gym-Appointment
 中科大中区体育中心小程序预约脚本
 
 支持通过统一身份认证登录进行中区体育馆场地预约（由于游泳预约平台已经迁移，目前该脚本只支持预约羽毛球场）
