@@ -9,7 +9,9 @@
 
 # 环境
 
-与[中科大健康打卡脚本](https://github.com/windshadow233/USTC-Auto-Health-Report)相同
+python=3.6
+
+见requirements.txt
 
 # 使用方法
 ```python
