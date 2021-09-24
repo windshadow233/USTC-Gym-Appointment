@@ -120,9 +120,8 @@ class USTCGymAppointment(object):
         default = {1: '2', 4: '1'}.get(gymnasium_id)
         while 1:
             people_number = input(f"请填写入场人数(1~10):\n羽毛球默认2人、游泳默认1人\n0: 退出\n") or default
-            if people_number in {str(i) for i in range(11)}:
-                break
-        return int(people_number)
+            if people_number.isdigit() and 0 <= int(people_number) <= 10:
+                return int(people_number)
 
     def login(self, username, password):
         """
