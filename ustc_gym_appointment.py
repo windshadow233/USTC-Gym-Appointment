@@ -188,7 +188,7 @@ class USTCGymAppointment(object):
         r = self.sess.post(url, headers=headers).json()
         return r.get('code') == 200, r.get('msg')
 
-    def interactive(self):
+    def interact(self):
         """
         简单的人机交互程序
         """
