@@ -21,7 +21,7 @@ bot = USTCGymAppointment()
 # 登录
 bot.login('SAxxxxxxxx', 'password')
 # 可通过简单交互程序进行预约
-bot.interactive()
+bot.interact()
 # 也可通过bot.submit方法自行调用预约,需要自己构造params参数
 bot.submit(params)
 # 通过bot.cancel方法取消预约,参数reserve_id在预约成功后的返回结果中获取
