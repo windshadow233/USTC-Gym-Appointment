@@ -34,5 +34,6 @@ class USTCPassportLogin(object):
             }
             self.sess.post(self.passport, login_data, allow_redirects=False)
             return self.sess.cookies.get("uc") == username
-        except:
+        except Exception as e:
+            print(e)
             return False
