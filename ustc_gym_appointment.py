@@ -41,9 +41,7 @@ class USTCGymAppointment(object):
         """
         获取token
         """
-        headers = {
-            "content-type": "application/json"
-        }
+        headers = {"content-type": "application/json"}
         data = {
             "ticket": ticket
         }
