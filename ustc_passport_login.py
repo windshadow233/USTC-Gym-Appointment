@@ -9,7 +9,7 @@ class USTCPassportLogin(object):
         self.sess.headers = {
             "User-Agent": 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Safari/537.36'
         }
-        
+
     def _get_cas_lt(self):
         """
         获取登录时需要提供的验证字段
