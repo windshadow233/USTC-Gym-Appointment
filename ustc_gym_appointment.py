@@ -57,7 +57,7 @@ class USTCGymAppointment(object):
             "dateStr": date_str,
             "timeQuantumId": time_quantum_id
         }
-        headers = {"content-type": "application/json"}
+        headers = {"content-type": "application/json", "token": self.token}
         result = self.sess.post(self.info_url, data=json.dumps(data), headers=headers).json()
         code = result.get('code')
         if code != 200:
