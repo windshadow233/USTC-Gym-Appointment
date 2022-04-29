@@ -134,12 +134,12 @@ class USTCGymAppointment(object):
 
     def find_available(self, gymnasium_id):
         """
-        寻找四天内的可用场地
+        寻找两天内的可用场地
         返回一个字典,其键为(date, time_quantum_id)二元组,值为可用场地的list
         """
         today = datetime.datetime.now()
         one_day = datetime.timedelta(days=1)
-        dates = [(today + one_day * i).strftime("%Y-%m-%d") for i in range(4)]
+        dates = [(today + one_day * i).strftime("%Y-%m-%d") for i in range(2)]
         available_dict = {}
         for date in tqdm.tqdm(dates):
             for time_quantum_id in self.id2time.keys():
@@ -195,7 +195,7 @@ class USTCGymAppointment(object):
             return
         sport = {1: '羽毛球', 4: '游泳'}.get(gymnasium_id)
         print(f"选定运动类型: {sport}")
-        print("正在寻找四天内的可用场地...")
+        print("正在寻找两天内的可用场地...")
         available = self.find_available(gymnasium_id)
         if not available:
             print("这几天场地已经约满了！")
