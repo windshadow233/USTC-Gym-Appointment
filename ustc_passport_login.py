@@ -36,7 +36,7 @@ class USTCPassportLogin(object):
                 'service': '',
             }
             self.sess.post(self.passport, login_data, allow_redirects=False)
-            return self.sess.cookies.get("uc") == username
+            return self.sess.cookies.get("logins") is not None
         except Exception as e:
             print(e)
             return False
