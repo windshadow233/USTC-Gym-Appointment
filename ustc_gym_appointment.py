@@ -65,10 +65,6 @@ class USTCGymAppointment(object):
     @aiocqhttp.ensure_async
     def submit(self, gymnasium_id, sport_place_id, time_quantum_id,
                user, people_number, appointment_day, phone, success_list):
-        """
-        提交预约请求,需要提供预约表单的参数
-        成功时返回预约信息，失败时返回预约失败的msg
-        """
         post_data = {
             "gymnasiumId": gymnasium_id,
             "sportPlaceId": sport_place_id,
