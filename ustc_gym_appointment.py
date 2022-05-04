@@ -117,7 +117,7 @@ class USTCGymAppointment(object):
             return
         people_number = data.get('people_number', 2)
         gymnasium_id = 1
-        date = (datetime.datetime.today() + datetime.timedelta(days=1)).strftime('%Y-%m-%d"')
+        date = (datetime.datetime.today() + datetime.timedelta(days=1)).strftime('%Y-%m-%d')
         tasks = []
         success_list = []
         for time_id in time_ids:
