@@ -37,7 +37,7 @@ people_number: 2
 
 例如，若你想预约14:00-21:30之间任意场次，就填: [7, 8, 9, 10, 11]
 
-然后直接按下面方法调用脚本：
+然后直接按下面方法在config.yml的相同目录下调用脚本：
 
 ```python
 from ustc_gym_appointment import USTCGymAppointment
