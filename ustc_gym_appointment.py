@@ -1,7 +1,6 @@
 import datetime
 import json
 import urllib.parse
-import tqdm
 import asyncio
 import aiocqhttp
 import yaml
