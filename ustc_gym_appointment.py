@@ -143,6 +143,6 @@ class USTCGymAppointment(object):
         if not success_list:
             print('Available place not found!')
         for success_item in success_list:
-            print(f"预约成功\n此次操作ID为: {success_item.get('id')}(可用于取消预约), 您的入场码为: {success_item.get('code')},"
+            print(f"预约成功\n此次操作ID为: {success_item.get('id')}(可用于取消预约), 您的入场码为: {success_item.get('code')}, "
                   f"场地: {success_item.get('placeName')}, 入场时间: {date} {success_item.get('time')}, "
                   f"入场人数: {people_number}")
