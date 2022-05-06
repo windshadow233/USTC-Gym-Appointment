@@ -1,4 +1,6 @@
 from ustc_gym_appointment import USTCGymAppointment
 
-bot = USTCGymAppointment()
-bot.appointment()
+
+if __name__ == '__main__':
+    bot = USTCGymAppointment()
+    bot.appointment()
