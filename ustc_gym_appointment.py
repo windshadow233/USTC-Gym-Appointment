@@ -13,7 +13,6 @@ class USTCGymAppointment(object):
         self.login_bot = USTCPassportLogin()
         self.sess = self.login_bot.sess
         self.cas_url = 'https://passport.ustc.edu.cn/login?service=https://cgyy.ustc.edu.cn/validateLogin.html'
-        self.info_url = 'https://cgyy.ustc.edu.cn/api/app/sport/place/getAppointmentInfo'
         self.token_url = 'https://cgyy.ustc.edu.cn/api/user/login'
         self.submit_url = 'https://cgyy.ustc.edu.cn/api/app/appointment/record/submit'
         self.cancel_url = 'https://cgyy.ustc.edu.cn/api/app/appointment/record/cancel/'
