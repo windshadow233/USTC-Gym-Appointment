@@ -52,5 +52,5 @@ python main.py
 取消预约方法：
 ```python
 # 通过bot.cancel方法取消预约,参数reserve_id在预约成功后的返回结果中获取
-bot.cancel(reserve_id)
+bot.cancel(username="SA66668888", password="12345678", reserve_id="123456")
 ```
