@@ -87,10 +87,17 @@ class USTCGymAppointment(object):
         success_list.append(data)
         return True, data
 
-    def cancel(self, reserve_id):
+    def cancel(self, username, password, reserve_id):
         """
-        取消预约，需要提供操作ID
+        取消预约，需要提供账号密码，操作ID
         """
+        self.sess.cookies.clear()
+        login_status = self._login(username, password)
+        if login_status:
+            print("Login successfully!")
+        else:
+            print("Login failed!")
+            return
         url = self.cancel_url + str(reserve_id)
         headers = {
             "content-type": "application/json",
@@ -108,6 +115,7 @@ class USTCGymAppointment(object):
         username = data['username']
         password = data['password']
         time_ids = data['time_ids']
+        self.sess.cookies.clear()
         login_status = self._login(username, password)
         if login_status:
             print("Login successfully!")
