@@ -30,7 +30,6 @@ class USTCGymAppointment(object):
             10: "18:30-20:00",
             11: "20:00-21:30"
         }
-        self.time2id = dict(zip(self.id2time.values(), self.id2time.keys()))
 
     def _get_ticket(self):
         response = self.sess.get(self.cas_url, allow_redirects=False)
