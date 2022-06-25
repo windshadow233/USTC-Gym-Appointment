@@ -15,7 +15,7 @@ class USTCPassportLogin(object):
         获取登录时需要提供的验证字段
         """
         response = self.sess.get(self.passport)
-        CAS_LT = BeautifulSoup(response.text, 'lxml').find(attrs={'id': 'CAS_LT'}).get('value')
+        CAS_LT = BeautifulSoup(response.text, 'html.parser').find(attrs={'id': 'CAS_LT'}).get('value')
         return CAS_LT
 
     def login(self, username, password):
