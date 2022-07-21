@@ -2,7 +2,7 @@ import datetime
 import json
 import urllib.parse
 import asyncio
-import aiocqhttp
+from quart.utils import run_sync
 import yaml
 
 from ustc_passport_login import USTCPassportLogin
@@ -59,7 +59,7 @@ class USTCGymAppointment(object):
             self.token = self._get_token(ticket)
         return is_success
 
-    @aiocqhttp.ensure_async
+    @run_sync
     def submit(self, gymnasium_id, sport_place_id, time_quantum_id,
                user, people_number, appointment_day, phone, success_list):
         post_data = {
@@ -106,9 +106,9 @@ class USTCGymAppointment(object):
         return r.get('code') == 200, r.get('msg')
 
     def appointment(self, file="config.yml"):
-        if datetime.datetime.now().hour < 22:
-            print("Not available time!")
-            return
+        # if datetime.datetime.now().hour < 22:
+        #     print("Not available time!")
+        #     return
         with open(file, encoding='utf-8') as f:
             data = yaml.safe_load(f)
         username = data['username']
