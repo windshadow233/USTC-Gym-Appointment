@@ -106,9 +106,9 @@ class USTCGymAppointment(object):
         return r.get('code') == 200, r.get('msg')
 
     def appointment(self, file="config.yml"):
-        # if datetime.datetime.now().hour < 22:
-        #     print("Not available time!")
-        #     return
+        if datetime.datetime.now().hour < 22:
+            print("Not available time!")
+            return
         with open(file, encoding='utf-8') as f:
             data = yaml.safe_load(f)
         username = data['username']
