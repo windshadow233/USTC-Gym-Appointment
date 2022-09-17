@@ -1,9 +1,9 @@
 import datetime
 import json
 import urllib.parse
-import asyncio
-from quart.utils import run_sync
+import threading
 import yaml
+
 
 from ustc_passport_login import USTCPassportLogin
 
@@ -59,7 +59,6 @@ class USTCGymAppointment(object):
             self.token = self._get_token(ticket)
         return is_success
 
-    @run_sync
     def submit(self, gymnasium_id, sport_place_id, time_quantum_id,
                user, people_number, appointment_day, phone, success_list):
         post_data = {
@@ -124,21 +123,22 @@ class USTCGymAppointment(object):
         people_number = data.get('people_number', 2)
         gymnasium_id = 1
         date = (datetime.datetime.today() + datetime.timedelta(days=1)).strftime('%Y-%m-%d')
-        tasks = []
         success_list = []
         for time_id in time_ids:
             for place in range(1, 15):
-                tasks.append(self.submit(gymnasium_id=gymnasium_id,
-                                         sport_place_id=place,
-                                         time_quantum_id=time_id,
-                                         user='',
-                                         people_number=people_number,
-                                         appointment_day=date,
-                                         phone='',
-                                         success_list=success_list))
-        t = asyncio.gather(*tasks)
-        loop = asyncio.get_event_loop()
-        loop.run_until_complete(t)
+                threading.Thread(
+                    target=self.submit,
+                    kwargs={
+                        "gymnasium_id": gymnasium_id,
+                        "sport_place_id": place,
+                        "time_quantum_id": time_id,
+                        "user": "",
+                        "people_number": people_number,
+                        "appointment_day": date,
+                        "phone": "",
+                        "success_list": success_list
+                    }
+                ).start()
         if not success_list:
             print('Available place not found!')
         for success_item in success_list:
